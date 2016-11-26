@@ -4,19 +4,18 @@ $(document).ready(function() {
 	var mens = 0;
 	i = 0;
 	timeline();
-	$(".mensajes_cargados").click(function() {
-		alert('Item selected');
-	});
+	// cargar_timeline();
 });
 
 var timeline = function() {
-	$.getJSON('./datos.json', function(datos){
+	$.getJSON('./timeline.json', function(datos){
+		console.log(datos.mensajes);
 		//for (mens in datos.mensajes) {
 		//console.log(mens);
-		console.log(datos.mensajes.length);
+		//console.log(datos.mensajes.length);
 		for (var mens = 0; mens < datos.mensajes.length; mens++) {
 			autor_mensaje = datos.mensajes[mens].autor;
-			console.log(mens);
+			//console.log(mens);
 			avatar_mensaje = datos.mensajes[mens].avatar;
 			titulo_mensaje = datos.mensajes[mens].titulo;
 			contenido_mensaje = datos.mensajes[mens].contenido;
@@ -33,18 +32,83 @@ var timeline = function() {
 			mensaje.push(contenido_mensaje);
 			//$('#texto').append('<p id="fecha">Fecha: ' + fecha_mensaje + '</p>');
 			mensaje.push(fecha_mensaje);
-			console.log(mensaje);
-			console.log(i);
+			//console.log(mensaje);
+			//console.log(i);
 			$('<br />').appendTo('#texto');
-			$('<div>', {'class': 'mensajes_cargados', 'id':'mensaje'+i}).appendTo('#texto');
-			$('<h4>', {'id': 'autor', html: mensaje[0]}).appendTo('#mensaje'+i);
-			$('<img>', {'id': 'avatar', 'src': mensaje[1]}).appendTo('#mensaje'+i);
-			$('<h4>', {'id': 'titulo', html: mensaje[2]}).appendTo('#mensaje'+i);
-			$('<p>', {'id': 'contenido', html: mensaje[3]}).appendTo('#mensaje'+i);
-			$('<h6>', {'id': 'fecha', html: mensaje[4]}).appendTo('#mensaje'+i);
-
+			$('<div>', {
+				'class': 'mensaje_cargado',
+				'onclick': 'mostrar_mensaje()',
+				'id':'mensaje'+i
+			}).appendTo('#texto');
+			$('<img>', {
+				'id': 'avatar',
+				'src': mensaje[1]
+			}).appendTo('#mensaje'+i);
+			$('<h4>', {
+				'id': 'autor',
+				html: mensaje[0]
+			}).appendTo('#mensaje'+i);
+			 $('<h4>', {
+			 	'id': 'titulo' + i,
+			 	'class': 'titulo',
+			 	html: mensaje[2]}
+			 	).appendTo('#mensaje'+i);
+			 $('<button>', {
+			 	'type': 'button',
+			 	'id': 'cerrar' + i,
+			 	'class': 'cerrar',
+			 	html: 'Cerrar',
+			 	'onclick': 'cerrar_mensaje()'
+			 	}).appendTo('#mensaje'+i);
+			// $('<p>', {
+			// 	'id': 'contenido',
+			// 	html: mensaje[3]
+			// }).appendTo('#mensaje'+i);
+			// $('<h6>', {
+			// 	'id': 'fecha',
+			// 	html: mensaje[4]
+			// }).appendTo('#mensaje'+i);
 			i++;
+			console.log(i);
+			
 		};
 	});
 };
 
+// var cargar_timeline = function() {
+// 	console.log('llama a la funcion');
+// 	$('#texto').on('click','.mensaje_cargado', function() {
+// 		console.log('clickaste un mensaje');
+// 	})
+// };
+
+var mostrar_mensaje = function () {
+	// $('.titulo').slideToggle('fast', 'swing');
+	//console.log('aparece titulo');
+	// console.log($(this).attr('id'));
+	//var oID = $(this).attr("id");
+	//console.log(idMensaje);
+	//console.log(idTitulo);
+	//$('#'+idTitulo).slideToggle('fast','swing');
+	$('#texto').on('click','.mensaje_cargado',function() {
+		console.log('ABRELO, COÑO');
+		var id_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: ' + id_recibido);
+		var id_extraido = id_recibido.substring(7,8);
+		console.log(id_extraido);
+		$('#titulo'+id_extraido).css({'display':'block'});
+		$('#cerrar'+id_extraido).css({'display':'block'});
+	})
+};
+
+var cerrar_mensaje = function() {
+	$('#texto').on('dblclick','.mensaje_cargado',function() {
+		console.log('CIERRALO, COÑO');
+		var id_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: ' + id_recibido);
+		var id_extraido = id_recibido.substring(7,8);
+		console.log(id_extraido);
+		$('#titulo'+id_extraido).css({'display':'none'});
+		$('#cerrar'+id_extraido).css({'display':'none'});
+	})
+}
