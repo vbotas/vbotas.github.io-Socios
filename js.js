@@ -48,26 +48,28 @@ var timeline = function() {
 				'id': 'autor',
 				html: mensaje[0]
 			}).appendTo('#mensaje'+i);
-			 $('<h4>', {
+			$('<h4>', {
 			 	'id': 'titulo' + i,
 			 	'class': 'titulo',
 			 	html: mensaje[2]}
 			 	).appendTo('#mensaje'+i);
-			 $('<button>', {
+			$('<p>', {
+				'id': 'contenido' + i,
+				'class': 'contenido',
+				html: mensaje[3]
+			}).appendTo('#mensaje'+i);
+			$('<h6>', {
+				'id': 'fecha' + i,
+				'class': 'fecha',
+				html: mensaje[4]
+			}).appendTo('#mensaje'+i);
+			$('<button>', {
 			 	'type': 'button',
 			 	'id': 'cerrar' + i,
 			 	'class': 'cerrar',
 			 	html: 'Cerrar',
 			 	'onclick': 'cerrar_mensaje()'
 			 	}).appendTo('#mensaje'+i);
-			// $('<p>', {
-			// 	'id': 'contenido',
-			// 	html: mensaje[3]
-			// }).appendTo('#mensaje'+i);
-			// $('<h6>', {
-			// 	'id': 'fecha',
-			// 	html: mensaje[4]
-			// }).appendTo('#mensaje'+i);
 			i++;
 			console.log(i);
 			
@@ -97,6 +99,8 @@ var mostrar_mensaje = function () {
 		var id_extraido = id_recibido.substring(7,8);
 		console.log(id_extraido);
 		$('#titulo'+id_extraido).css({'display':'block'});
+		$('#contenido'+id_extraido).css({'display':'block'});
+		$('#fecha'+id_extraido).css({'display':'block'});
 		$('#cerrar'+id_extraido).css({'display':'block'});
 	})
 };
@@ -109,6 +113,8 @@ var cerrar_mensaje = function() {
 		var id_extraido = id_recibido.substring(7,8);
 		console.log(id_extraido);
 		$('#titulo'+id_extraido).css({'display':'none'});
+		$('#contenido'+id_extraido).css({'display':'none'});
+		$('#fecha'+id_extraido).css({'display':'none'});
 		$('#cerrar'+id_extraido).css({'display':'none'});
 	})
 }

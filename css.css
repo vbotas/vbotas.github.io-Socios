@@ -1,9 +1,32 @@
 html {
-  background: url("./Fondo.jpg") no-repeat center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  	background: url("./Fondo.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#banner {
+	padding: 20px;
+	margin: 0 auto;
+	margin-bottom: 10px; 
+	overflow: hidden; 
+	width: 60%;
+	color: rgba(255,255,255,0.5);
+    font-weight: bold;
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+	font-size: 40px;
+	text-align: center;
+	text-shadow: -1px 0 grey, 0 1px grey,1px 0 grey, 0 -1px grey;
+	background:-webkit-gradient(radial, 187 89, 114, 220 -257, 465, from(rgba(0,0,0,0.75)), to(rgba(0,0,0,0.25)));
+	border-radius: 35px 0px 35px 0px;
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 5px solid #5878ca;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+   
 }
 
 #prueba {
@@ -29,15 +52,17 @@ html {
 	overflow: hidden;
 }
 
-.titulo{
+.titulo, .cerrar, .contenido, .fecha{
 	display: none;
 }
 
-.cerrar {
+/*.cerrar {
 	display: none;
-}
+}*/
 
 #botonPerfil {
+	display:block;
+	margin-left: 5px;
  border: none;
  background: #3a7999;
  color: #f2f2f2;
