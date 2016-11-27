@@ -14,7 +14,7 @@ $(document).ready(function() {
 			$('#wrapper').removeClass('menu-fixed');
 		}
 	})
-
+	setTimeout(cargar_mensajesNoLeidos, 1000);
 });
 
 var timeline = function() {
@@ -128,3 +128,9 @@ var cerrar_mensaje = function() {
 		$('#cerrar'+id_extraido).css({'display':'none'});
 	})
 }
+
+var cargar_mensajesNoLeidos = function() {
+	$('<p>', {
+	 	html: 'Tienes X mensajes sin leer',
+	}).appendTo('#mensajesNoLeidos');
+};
