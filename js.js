@@ -5,6 +5,16 @@ $(document).ready(function() {
 	i = 0;
 	timeline();
 	// cargar_timeline();
+	var altura = $('#botonPerfil').offset().top;
+	console.log('la altura es ' + altura);
+	$(window).on('scroll',function() {
+		if ( $(window).scrollTop() > altura ) {
+			$('#wrapper').addClass('menu-fixed');
+		} else {
+			$('#wrapper').removeClass('menu-fixed');
+		}
+	})
+
 });
 
 var timeline = function() {
