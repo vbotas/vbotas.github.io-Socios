@@ -109,6 +109,7 @@ html {
 }
 
 #mensajesNoLeidos {
+	display:none;
 	padding: 5px;
 	margin: 0 auto;
 	margin-bottom: 10px; 
