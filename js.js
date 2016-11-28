@@ -3,10 +3,12 @@ $(document).ready(function() {
 	var m_act='';
 	var mens = 0;
 	i = 0;
+	j = 0;
 	timeline();
 	// cargar_timeline();
 	var altura = $('#botonPerfil').offset().top;
 	console.log('la altura es ' + altura);
+	
 	$(window).on('scroll',function() {
 		if ( $(window).scrollTop() > altura ) {
 			$('#wrapper').addClass('menu-fixed');
@@ -14,7 +16,16 @@ $(document).ready(function() {
 			$('#wrapper').removeClass('menu-fixed');
 		}
 	})
-	setTimeout(cargar_mensajesNoLeidos, 5000);
+	setTimeout(cargar_mensajesNoLeidos, 3000);
+	
+	$('#mensajesNoLeidos').on('click', function() {
+		$('#mensajeInfo').css({'display':'none'});
+		$('#mensajesNoLeidos_cargados').css({'display':'block'});
+	});
+
+	// $('#botonPerfil').on('click', function() {
+	// 	paginaperfil();
+	// })
 });
 
 var timeline = function() {
@@ -42,12 +53,12 @@ var timeline = function() {
 			mensaje.push(contenido_mensaje);
 			//$('#texto').append('<p id="fecha">Fecha: ' + fecha_mensaje + '</p>');
 			mensaje.push(fecha_mensaje);
-			//console.log(mensaje);
+			console.log(mensaje);
 			//console.log(i);
 			$('<br />').appendTo('#texto');
 			$('<div>', {
 				'class': 'mensaje_cargado',
-				'onclick': 'mostrar_mensaje()',
+				'onclick': 'mostrar_mensajeLeido()',
 				'id':'mensaje'+i
 			}).appendTo('#texto');
 			$('<img>', {
@@ -78,7 +89,7 @@ var timeline = function() {
 			 	'id': 'cerrar' + i,
 			 	'class': 'cerrar',
 			 	html: 'Cerrar',
-			 	'onclick': 'cerrar_mensaje()'
+			 	'onclick': 'cerrar_mensajeLeido()'
 			 	}).appendTo('#mensaje'+i);
 			i++;
 			console.log(i);
@@ -94,7 +105,7 @@ var timeline = function() {
 // 	})
 // };
 
-var mostrar_mensaje = function () {
+var mostrar_mensajeLeido = function () {
 	// $('.titulo').slideToggle('fast', 'swing');
 	//console.log('aparece titulo');
 	// console.log($(this).attr('id'));
@@ -106,21 +117,34 @@ var mostrar_mensaje = function () {
 		console.log('ABRELO, COÑO');
 		var id_recibido = $(this).attr('id');
 		console.log('El ID de este mensaje es: ' + id_recibido);
-		var id_extraido = id_recibido.substring(7,8);
+		var id_extraido = id_recibido[id_recibido.length - 1];
 		console.log(id_extraido);
 		$('#titulo'+id_extraido).css({'display':'block'});
 		$('#contenido'+id_extraido).css({'display':'block'});
 		$('#fecha'+id_extraido).css({'display':'block'});
 		$('#cerrar'+id_extraido).css({'display':'block'});
 	})
+}
+var mostrar_mensajeNoLeido = function () {
+	$('#mensajesNoLeidos_cargados').on('click','.mensaje_cargadoSinLeer',function() {
+		console.log('ABRELO, COÑO');
+		var idsinleer_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: ' + idsinleer_recibido);
+		var idsinleer_extraido = idsinleer_recibido[idsinleer_recibido.length - 2] + idsinleer_recibido[idsinleer_recibido.length - 1];
+		console.log(idsinleer_extraido);
+		$('#titulo'+idsinleer_extraido).css({'display':'block'});
+		$('#contenido'+idsinleer_extraido).css({'display':'block'});
+		$('#fecha'+idsinleer_extraido).css({'display':'block'});
+		$('#cerrar'+idsinleer_extraido).css({'display':'block'});
+	})
 };
 
-var cerrar_mensaje = function() {
+var cerrar_mensajeLeido = function() {
 	$('#texto').on('dblclick','.mensaje_cargado',function() {
 		console.log('CIERRALO, COÑO');
 		var id_recibido = $(this).attr('id');
 		console.log('El ID de este mensaje es: ' + id_recibido);
-		var id_extraido = id_recibido.substring(7,8);
+		var id_extraido = id_recibido[id_recibido.length - 1];
 		console.log(id_extraido);
 		$('#titulo'+id_extraido).css({'display':'none'});
 		$('#contenido'+id_extraido).css({'display':'none'});
@@ -128,11 +152,147 @@ var cerrar_mensaje = function() {
 		$('#cerrar'+id_extraido).css({'display':'none'});
 	})
 }
+var cerrar_mensajeNoLeido = function () {
+	$('#mensajesNoLeidos_cargados').on('dblclick','.mensaje_cargadoSinLeer',function() {
+		console.log('CIERRALO, COÑO');
+		var idsinleer_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: ' + idsinleer_recibido);
+		var idsinleer_extraido = idsinleer_recibido[idsinleer_recibido.length - 2] + idsinleer_recibido[idsinleer_recibido.length - 1];
+		console.log(idsinleer_extraido);
+		$('#titulo'+idsinleer_extraido).css({'display':'none'});
+		$('#contenido'+idsinleer_extraido).css({'display':'none'});
+		$('#fecha'+idsinleer_extraido).css({'display':'none'});
+		$('#cerrar'+idsinleer_extraido).css({'display':'none'});
+	})
+}
 
 var cargar_mensajesNoLeidos = function() {
-	$('<p>', {
-	 	html: 'Tienes X mensajes sin leer',
-	}).appendTo('#mensajesNoLeidos');
-	$('#mensajesNoLeidos').toggle(400);
-	$('#mensajesNoLeidos').css({'display':'block'});
+	
+
+	$.getJSON('./update.json', function(datos2) {
+		console.log(datos2.mensajes_sinLeer);
+
+		for(var mens_sinleer = 0; mens_sinleer < datos2.mensajes_sinLeer.length; mens_sinleer++) {
+			
+			autor_mensajesSinLeer = datos2.mensajes_sinLeer[mens_sinleer].autor;
+			avatar_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].avatar;
+			titulo_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].titulo;
+			contenido_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].contenido;
+			fecha_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].fecha;
+			var mensaje_sinLeer = [];
+
+			mensaje_sinLeer.push(autor_mensajesSinLeer);
+			mensaje_sinLeer.push(avatar_mensajeSinLeer);
+			mensaje_sinLeer.push(titulo_mensajeSinLeer);
+			mensaje_sinLeer.push(contenido_mensajeSinLeer);
+			mensaje_sinLeer.push(fecha_mensajeSinLeer);
+			console.log(mensaje_sinLeer);
+			var num_mensajesSinLeer = datos2.mensajes_sinLeer.length;
+			console.log('Tienes ' + num_mensajesSinLeer+ ' mensajes sin leer');
+			
+			$('<br />').appendTo('#mensajesNoLeidos_cargados');
+			$('<div>', {
+				'class': 'mensaje_cargadoSinLeer',
+				'onclick': 'mostrar_mensajeNoLeido()',
+				'id': 'mensajeSinLeer'+j+j
+			}).appendTo('#mensajesNoLeidos_cargados');
+			$('<img>', {
+				'id': 'avatar',
+				'src': mensaje_sinLeer[1]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<h4>', {
+				'id': 'autor',
+				html: mensaje_sinLeer[0]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<h4>', {
+				'id': 'titulo' +j+j,
+				'class': 'titulo',
+				html: mensaje_sinLeer[2]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<p>', {
+				'id': 'contenido'+j+j,
+				'class': 'contenido',
+				html: mensaje_sinLeer[3]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<h6>', {
+				'id': 'fecha'+j+j,
+				'class': 'fecha',
+				html: mensaje_sinLeer[4]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<button>', {
+				'type': 'button',
+				'id': 'cerrar'+j+j,
+				'class': 'cerrar',
+				html: 'Cerrar',
+				'onclick': 'cerrar_mensajeNoLeido()'
+			}).appendTo('#mensajeSinLeer'+j+j);
+			j++;
+			console.log(j);
+			//console.log('Ahora mostramos los mensajes no leidos');
+			/*$('#mensajesNoLeidos').on('click','#mensajeInfo', function() {
+				//$('#mensajesNoLeidos').css({'display':'none'});
+				$('<br />').appendTo('#mensajesNoLeidos');
+				$('<div>', {
+					'class': 'mensaje_cargado',
+					'onclick': 'mostrar_mensaje()',
+					'id':'mensajeSinLeer'+j}).appendTo('#mensajesNoLeidos');
+				$('<img>', {
+					'id': 'avatar',
+					'src': mensaje_sinLeer[1]}).appendTo('#mensajeSinLeer'+j);
+				$('<h4>', {
+					'id': 'autor',
+					html: mensaje_sinLeer[0]}).appendTo('#mensajeSinLeer'+j);
+				j++;
+				console.log(j);*/
+			//	});	
+		}
+		
+
+		$('<p>', {
+		'id': 'mensajeInfo',
+	 	html: 'Tienes ' + num_mensajesSinLeer+ ' mensajes sin leer',
+		}).appendTo('#mensajesNoLeidos');
+		$('#mensajesNoLeidos').toggle(400);
+		$('#mensajesNoLeidos').css({'display':'block'});
+		$('#mensajeInfo').css({'display':'block'});
+		});
+		$('<div>', {
+			'id': 'mensajesNoLeidos_cargados'
+		}).appendTo('#mensajesNoLeidos');
 };
+
+// var paginaperfil = function () {
+	
+// 	var nueva_ventana = window.open('', '_blank');
+// 	nueva_ventana.alert('Abriste tu perfil');
+// 	$('html').css({
+// 		'background':'url("./Fondo.jpg") no-repeat center fixed',
+// 		'background-size': 'cover'
+// 	});
+// 	$('<p>')
+// 	nueva_ventana.on('ready', function() {
+// 		alert('ya cargo la pagina');
+// 	})
+// }
+
+
+var paginaperfil = function () {
+	$.getJSON('./myline.json', function (misDatos) {
+
+		for (var mismens = 0; mismens < misDatos.MisMensajes.legth; mismens++) {
+			autorMisMensajes = misDatos.MisMensajes[mismens].autor;
+			avatarMisMensajes = misDatos.MisMensajes[mismens].avatar;
+			tituloMisMensajes = misDatos.MisMensajes[mismens].titulo;
+			contenidoMisMensajes = misDatos.MisMensajes[mismens].contenido;
+			fechaMisMensajes = misDatos.MisMensajes[mismens].fecha;
+
+			var mi_mensaje = [];
+
+			mi_mensaje.push(autorMisMensajes);
+			mi_mensaje.push(avatarMisMensajes);
+			mi_mensaje.push(tituloMisMensajes);
+			mi_mensaje.push(contenidoMisMensajes);
+			mi_mensaje.push(fechaMisMensajes);
+		}
+	})
+}

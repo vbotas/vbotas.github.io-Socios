@@ -43,11 +43,14 @@ html {
 	border-radius: 5px;
 	background-color: #C8E8FF;
 	padding: 3px;
+	width: 65%;
+	margin: 0 auto;
+	border-radius: 15px;
 }
 
 #avatar {
 	border: 2px solid grey;
-	margin: 0;
+	margin: 5px 15px 0 15px ;
 	padding: 0;
 	border-radius: 800px;
 	overflow: hidden;
@@ -63,7 +66,7 @@ html {
 
 #botonPerfil {
 	display:block;
-	margin-left: 5px;
+	margin-left: 22.5px;
  border: none;
  background: #3a7999;
  color: #f2f2f2;
@@ -107,8 +110,10 @@ html {
 
  	/*margin: 1em 25%;*/
 }
-
 #mensajesNoLeidos {
+	display: none;
+}
+#mensajesNoLeidos #mensajeInfo {
 	display:none;
 	padding: 5px;
 	margin: 0 auto;
@@ -129,4 +134,17 @@ html {
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
+}
+#mensajesNoLeidos_cargados {
+	display:none;
+}
+.mensaje_cargadoSinLeer {
+	display:block;
+	border: 3px solid grey;
+	border-radius: 5px;
+	background-color: #C8E8FF;
+	padding: 3px;
+	width: 65%;
+	margin: 0 auto;
+	border-radius: 15px;
 }

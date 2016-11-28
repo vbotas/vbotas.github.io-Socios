@@ -1,114 +1,74 @@
 {
-  "misMensajes": [
+  "MisMensajes": [
     {
-      "miMmensaje1": [
-        {
-          "autor": "yo",
-          "avatar": "miImagen",
-          "titulo": "titulo mensaje1",
-          "contenido": "contenido mensaje1",
-          "fecha": "fecha mensaje1"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 1",
+        "contenido": "contenido Mimensaje 1",
+        "fecha": "fecha Mimensaje 1"
     },
     {
-      "miMensaje2": [
-        {
-          "autor": "yo",
-          "avatar": "miImagen",
-          "titulo": "titulo mensaje2",
-          "contenido": "contenido mensaje2",
-          "fecha": "fecha mensaje2"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 2",
+        "contenido": "contenido Mimensaje 2",
+        "fecha": "fecha Mimensaje 2"
     },
     {
-      "miMensaje3": [
-        {
-          "autor": "yo",
-          "avatar": "miImagen",
-          "titulo": "titulo mensaje3",
-          "contenido": "contenido mensaje3",
-          "fecha": "fecha mensaje3"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 3",
+        "contenido": "contenido Mimensaje 3",
+        "fecha": "fecha Mimensaje 3"
     },
     {
-      "miMensaje4": [
-        {
-          "autor": "yo",
-          "avatar": "miImagen",
-          "titulo": "titulo mensaje4",
-          "contenido": "contenido mensaje4",
-          "fecha": "fecha mensaje4"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 4",
+        "contenido": "contenido Mimensaje 4",
+        "fecha": "fecha Mimensaje 4"
     },
     {
-      "miMensaje5": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje5",
-          "contenido":"contenido mensaje5",
-          "fecha":"fecha mensaje5"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 5",
+        "contenido": "contenido Mimensaje 5",
+        "fecha": "fecha Mimensaje 5"
     },
     {
-      "miMensaje6": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje6",
-          "contenido":"contenido mensaje6",
-          "fecha":"fecha mensaje6"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 6",
+        "contenido": "contenido Mimensaje 6",
+        "fecha": "fecha Mimensaje 6"
     },
     {
-      "miMensaje7": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje7",
-          "contenido":"contenido mensaje7",
-          "fecha":"fecha mensaje7"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 7",
+        "contenido": "contenido Mimensaje 7",
+        "fecha": "fecha mensaje sin leer 7"
     },
     {
-      "miMensaje8": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje8",
-          "contenido":"contenido mensaje8",
-          "fecha":"fecha mensaje8"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 8",
+        "contenido": "contenido Mimensaje 8",
+        "fecha": "fecha mensaje sin leer 8"
     },
     {
-      "miMensaje9": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje9",
-          "contenido":"contenido mensaje9",
-          "fecha":"fecha mensaje9"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 9",
+        "contenido": "contenido Mimensaje 9",
+        "fecha": "fecha Mimensaje 9"
     },
     {
-      "miMensaje10": [
-        {
-          "autor":"yo",
-          "avatar":"miImagen",
-          "titulo":"titulo mensaje10",
-          "contenido":"contenido mensaje10",
-          "fecha":"fecha mensaje10"
-        }
-      ]
+        "autor": "Víctor Botas Menéndez",
+        "avatar": "./avatares/avatar-5.jpg",
+        "titulo": "titulo Mimensaje 10",
+        "contenido": "contenido Mimensaje 10",
+        "fecha": "fecha Mimensaje 10"
     }
   ]
 }

@@ -1,42 +1,42 @@
 {
   "mensajes": [
     {
-        "autor": "autor1",
+        "autor": "Diego Cervero Otero",
         "avatar": "./avatares/avatar-1.jpg",
         "titulo": "titulo mensaje1",
         "contenido": "contenido mensaje1",
         "fecha": "fecha mensaje1"
     },
     {
-        "autor": "autor2",
+        "autor": "Néstor Susaeta Jaurrieta",
         "avatar": "./avatares/avatar-2.jpg",
         "titulo": "titulo mensaje2",
         "contenido": "contenido mensaje2",
         "fecha": "fecha mensaje2"
     },
     {
-        "autor": "autor3",
+        "autor": "Miguel Pérez Cuesta",
         "avatar": "./avatares/avatar-3.jpg",
         "titulo": "titulo mensaje3",
         "contenido": "contenido mensaje3",
         "fecha": "fecha mensaje3"
     },
     {
-        "autor": "autor4",
+        "autor": "Juan Lázaro Bernardo",
         "avatar": "./avatares/avatar-4.jpg",
         "titulo": "titulo mensaje4",
         "contenido": "contenido mensaje4",
         "fecha": "fecha mensaje4"
     },
     {
-        "autor": "autor5",
+        "autor": "Adrián Díaz Fuente",
         "avatar": "./avatares/avatar-6.jpg",
         "titulo": "titulo mensaje5",
         "contenido": "contenido mensaje5",
         "fecha": "fecha mensaje5"
     },
     {
-        "autor": "autor6",
+        "autor": "Esteban Andrés Suárez",
         "avatar": "./avatares/avatar-7.jpg",
         "titulo": "titulo mensaje6",
         "contenido": "contenido mensaje6",

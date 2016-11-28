@@ -1,59 +1,74 @@
 {
-  "mensajes": [
+  "mensajes_sinLeer": [
     {
-      "mensaje1": [
-        {
-          "autor": "autor1",
-          "avatar": "imagen1",
-          "titulo": "titulo mensaje1",
-          "contenido": "contenido mensaje1",
-          "fecha": "fecha mensaje1"
-        }
-      ]
+        "autor": "Adrián Díaz Fuente",
+        "avatar": "./avatares/avatar-6.jpg",
+        "titulo": "titulo mensaje sin leer 1",
+        "contenido": "contenido mensaje sin leer 1",
+        "fecha": "fecha mensaje sin leer 1"
     },
     {
-      "mensaje2": [
-        {
-          "autor": "autor2",
-          "avatar": "imagen2",
-          "titulo": "titulo mensaje2",
-          "contenido": "contenido mensaje2",
-          "fecha": "fecha mensaje2"
-        }
-      ]
+        "autor": "Miguel Pérez Cuesta",
+        "avatar": "./avatares/avatar-3.jpg",
+        "titulo": "titulo mensaje sin leer 2",
+        "contenido": "contenido mensaje sin leer 2",
+        "fecha": "fecha mensajesin leer 2"
     },
     {
-      "mensaje3": [
-        {
-          "autor": "autor3",
-          "avatar": "imagen3",
-          "titulo": "titulo mensaje3",
-          "contenido": "contenido mensaje3",
-          "fecha": "fecha mensaje3"
-        }
-      ]
+        "autor": "Juan Lázaro Bernardo",
+        "avatar": "./avatares/avatar-4.jpg",
+        "titulo": "titulo mensaje sin leer 3",
+        "contenido": "contenido mensaje sin leer 3",
+        "fecha": "fecha mensaje sin leer 3"
     },
     {
-      "mensaje4": [
-        {
-          "autor": "autor4",
-          "avatar": "imagen4",
-          "titulo": "titulo mensaje4",
-          "contenido": "contenido mensaje4",
-          "fecha": "fecha mensaje4"
-        }
-      ]
+        "autor": "Néstor Susaeta Jaurrieta",
+        "avatar": "./avatares/avatar-2.jpg",
+        "titulo": "titulo mensaje sin leer 4",
+        "contenido": "contenido mensaje sin leer 4",
+        "fecha": "fecha mensaje sin leer 4"
     },
     {
-      "mensaje5": [
-        {
-          "autor":"autor5",
-          "avatar":"imagen5",
-          "titulo":"titulo mensaje5",
-          "contenido":"contenido mensaje5",
-          "fecha":"fecha mensaje5"
-        }
-      ]
+        "autor": "Adrián Díaz Fuente",
+        "avatar": "./avatares/avatar-6.jpg",
+        "titulo": "titulo mensaje sin leer 5",
+        "contenido": "contenido mensaje sin leer 5",
+        "fecha": "fecha mensaje sin leer 5"
+    },
+    {
+        "autor": "Esteban Andrés Suárez",
+        "avatar": "./avatares/avatar-7.jpg",
+        "titulo": "titulo mensaje sin leer 6",
+        "contenido": "contenido mensaje sin leer 6",
+        "fecha": "fecha mensaje sin leer6"
+    },
+    {
+        "autor": "Juan Lázaro Bernardo",
+        "avatar": "./avatares/avatar-4.jpg",
+        "titulo": "titulo mensaje sin leer 7",
+        "contenido": "contenido mensaje sin leer 7",
+        "fecha": "fecha mensaje sin leer 7"
+    },
+    {
+        "autor": "Diego Cervero Otero",
+        "avatar": "./avatares/avatar-1.jpg",
+        "titulo": "titulo mensaje sin leer 8",
+        "contenido": "contenido mensaje sin leer 8",
+        "fecha": "fecha mensaje sin leer 8"
+    },
+    {
+        "autor": "Miguel Pérez Cuesta",
+        "avatar": "./avatares/avatar-3.jpg",
+        "titulo": "titulo mensaje sin leer 9",
+        "contenido": "contenido mensaje sin leer 9",
+        "fecha": "fecha mensaje sin leer 9"
+    },
+    {
+        "autor": "Néstor Susaeta Jaurrieta",
+        "avatar": "./avatares/avatar-2.jpg",
+        "titulo": "titulo mensaje sin leer 10",
+        "contenido": "contenido mensaje sin leer 10",
+        "fecha": "fecha mensaje sin leer 10"
     }
   ]
 }
