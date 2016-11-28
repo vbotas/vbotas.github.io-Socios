@@ -76,6 +76,7 @@ html {
  position: relative;
  box-sizing: border-box;
  transition: all 500ms ease;
+ text-decoration: none;
 }
 #botonPerfil:before {
  content:'';
@@ -147,4 +148,8 @@ html {
 	width: 65%;
 	margin: 0 auto;
 	border-radius: 15px;
+}
+button a {
+	text-decoration: none;
+	color: #f2f2f2;
 }

@@ -23,9 +23,9 @@ $(document).ready(function() {
 		$('#mensajesNoLeidos_cargados').css({'display':'block'});
 	});
 
-	// $('#botonPerfil').on('click', function() {
-	// 	paginaperfil();
-	// })
+	$('#botonPerfil').on('click', function() {
+		paginaperfil();
+	})
 });
 
 var timeline = function() {
@@ -261,22 +261,22 @@ var cargar_mensajesNoLeidos = function() {
 		}).appendTo('#mensajesNoLeidos');
 };
 
-// var paginaperfil = function () {
-	
-// 	var nueva_ventana = window.open('', '_blank');
-// 	nueva_ventana.alert('Abriste tu perfil');
-// 	$('html').css({
-// 		'background':'url("./Fondo.jpg") no-repeat center fixed',
-// 		'background-size': 'cover'
-// 	});
-// 	$('<p>')
-// 	nueva_ventana.on('ready', function() {
-// 		alert('ya cargo la pagina');
-// 	})
-// }
-
-
 var paginaperfil = function () {
+	
+	var nueva_ventana = window.open('', '_blank');
+	nueva_ventana.alert('Abriste tu perfil');
+	$('html').css({
+		'background':'url("./Fondo.jpg") no-repeat center fixed',
+		'background-size': 'cover'
+	});
+	$('<p>')
+	nueva_ventana.on('ready', function() {
+		alert('ya cargo la pagina');
+	})
+}
+
+
+/*var paginaperfil = function () {
 	$.getJSON('./myline.json', function (misDatos) {
 
 		for (var mismens = 0; mismens < misDatos.MisMensajes.legth; mismens++) {
@@ -293,6 +293,10 @@ var paginaperfil = function () {
 			mi_mensaje.push(tituloMisMensajes);
 			mi_mensaje.push(contenidoMisMensajes);
 			mi_mensaje.push(fechaMisMensajes);
+
+			console.log(mi_mensaje);
+			$('<br />').appendTo();
+			
 		}
 	})
-}
+}*/
