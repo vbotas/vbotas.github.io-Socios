@@ -6,6 +6,16 @@ html {
     background-size: cover;
 }
 
+#tabs {
+  	background: url("./Fondo.jpg") no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border: 0;
+}
+
+
 #banner {
 	
 	padding: 20px;
@@ -108,8 +118,6 @@ html {
 	width:100%;
 	vertical-align: top;
 	padding: 0.2em 0.5em;
-
- 	/*margin: 1em 25%;*/
 }
 #mensajesNoLeidos {
 	display: none;
@@ -152,4 +160,13 @@ html {
 button a {
 	text-decoration: none;
 	color: #f2f2f2;
+}
+.misMensajes {
+	border: 3px solid grey;
+	background-color: #C8E8FF;
+	border-radius: 5px;
+	padding: 3px;
+	width: 65%;
+	margin: 0 auto;
+	border-radius: 15px;
 }

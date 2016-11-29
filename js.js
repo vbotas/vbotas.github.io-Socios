@@ -4,6 +4,8 @@ $(document).ready(function() {
 	var mens = 0;
 	i = 0;
 	j = 0;
+	k = 0;
+	$('#tabs').tabs();
 	timeline();
 	// cargar_timeline();
 	var altura = $('#botonPerfil').offset().top;
@@ -24,6 +26,15 @@ $(document).ready(function() {
 	});
 
 	$('#botonPerfil').on('click', function() {
+		paginaperfil();
+	})
+	$('#ui-id-1').on('click', function() {
+		$('#texto').css({'display':'block'});
+		$('#mensajesNoLeidos').css({'display':'block'});
+	})
+	$('#ui-id-2').on('click', function() {
+		$('#texto').css({'display':'none'});
+		$('#mensajesNoLeidos').css({'display':'none'});
 		paginaperfil();
 	})
 });
@@ -124,7 +135,7 @@ var mostrar_mensajeLeido = function () {
 		$('#fecha'+id_extraido).css({'display':'block'});
 		$('#cerrar'+id_extraido).css({'display':'block'});
 	})
-}
+};
 var mostrar_mensajeNoLeido = function () {
 	$('#mensajesNoLeidos_cargados').on('click','.mensaje_cargadoSinLeer',function() {
 		console.log('ABRELO, COÑO');
@@ -138,6 +149,22 @@ var mostrar_mensajeNoLeido = function () {
 		$('#cerrar'+idsinleer_extraido).css({'display':'block'});
 	})
 };
+var mostrar_mismensajes = function () {
+	$('#miperfil').on('click','.misMensajes', function() {
+		var idMM_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: ' + idMM_recibido);
+		var idMM_extraido = idMM_recibido[idMM_recibido.length-3] + idMM_recibido[idMM_recibido.length-2] + idMM_recibido[idMM_recibido.length-1];
+		console.log(idMM_extraido);
+		$('#titulo'+idMM_extraido).css({'display':'block'});
+		$('#contenido'+idMM_extraido).css({'display':'block'});
+		$('#fecha'+idMM_extraido).css({'display':'block'});
+		$('#cerrar'+idMM_extraido).css({'display':'block'});
+	})
+};
+
+
+
+
 
 var cerrar_mensajeLeido = function() {
 	$('#texto').on('dblclick','.mensaje_cargado',function() {
@@ -151,7 +178,7 @@ var cerrar_mensajeLeido = function() {
 		$('#fecha'+id_extraido).css({'display':'none'});
 		$('#cerrar'+id_extraido).css({'display':'none'});
 	})
-}
+};
 var cerrar_mensajeNoLeido = function () {
 	$('#mensajesNoLeidos_cargados').on('dblclick','.mensaje_cargadoSinLeer',function() {
 		console.log('CIERRALO, COÑO');
@@ -164,7 +191,22 @@ var cerrar_mensajeNoLeido = function () {
 		$('#fecha'+idsinleer_extraido).css({'display':'none'});
 		$('#cerrar'+idsinleer_extraido).css({'display':'none'});
 	})
-}
+};
+var cerrar_mismensajes = function () {
+	$('#miperfil').on('dblclick','.misMensajes', function() {
+		var idMM_recibido = $(this).attr('id');
+		console.log('El ID de este mensaje es: '+ idMM_recibido);
+		var idMM_extraido = idMM_recibido[idMM_recibido.length-3] + idMM_recibido[idMM_recibido.length-2] + idMM_recibido[idMM_recibido.length-1];
+		console.log(idMM_extraido);
+		$('#titulo'+idMM_extraido).css({'display':'none'});
+		$('#contenido'+idMM_extraido).css({'display':'none'});
+		$('#fecha'+idMM_extraido).css({'display':'none'});
+		$('#cerrar'+idMM_extraido).css({'display':'none'});
+	})
+};
+
+
+
 
 var cargar_mensajesNoLeidos = function() {
 	
@@ -261,7 +303,7 @@ var cargar_mensajesNoLeidos = function() {
 		}).appendTo('#mensajesNoLeidos');
 };
 
-var paginaperfil = function () {
+/*var paginaperfil = function () {
 	
 	var nueva_ventana = window.open('', '_blank');
 	nueva_ventana.alert('Abriste tu perfil');
@@ -273,30 +315,72 @@ var paginaperfil = function () {
 	nueva_ventana.on('ready', function() {
 		alert('ya cargo la pagina');
 	})
-}
+}*/
 
 
-/*var paginaperfil = function () {
+var paginaperfil = function () {
+	
 	$.getJSON('./myline.json', function (misDatos) {
-
-		for (var mismens = 0; mismens < misDatos.MisMensajes.legth; mismens++) {
+		
+		console.log(misDatos.MisMensajes);
+		
+		for (var mismens = 0; mismens < misDatos.MisMensajes.length; mismens++) {
+			
 			autorMisMensajes = misDatos.MisMensajes[mismens].autor;
 			avatarMisMensajes = misDatos.MisMensajes[mismens].avatar;
 			tituloMisMensajes = misDatos.MisMensajes[mismens].titulo;
 			contenidoMisMensajes = misDatos.MisMensajes[mismens].contenido;
 			fechaMisMensajes = misDatos.MisMensajes[mismens].fecha;
 
-			var mi_mensaje = [];
+			var mensaje_mio = [];
 
-			mi_mensaje.push(autorMisMensajes);
-			mi_mensaje.push(avatarMisMensajes);
-			mi_mensaje.push(tituloMisMensajes);
-			mi_mensaje.push(contenidoMisMensajes);
-			mi_mensaje.push(fechaMisMensajes);
+			mensaje_mio.push(autorMisMensajes);
+			mensaje_mio.push(avatarMisMensajes);
+			mensaje_mio.push(tituloMisMensajes);
+			mensaje_mio.push(contenidoMisMensajes);
+			mensaje_mio.push(fechaMisMensajes);
 
-			console.log(mi_mensaje);
-			$('<br />').appendTo();
+			console.log(mensaje_mio);
 			
+
+			$('<br />').appendTo('#miperfil');
+			$('<div>', {
+				'class': 'misMensajes',
+				'onclick': 'mostrar_mismensajes()',
+				'id': 'MiMensaje'+k+k+k
+			}).appendTo('#miperfil');
+			$('<img>', {
+				'id': 'avatar',
+				'src': mensaje_mio[1]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<h4>', {
+				'id': 'autor',
+				html: mensaje_mio[0]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<h4>', {
+				'id': 'titulo' +k+k+k,
+				'class': 'titulo',
+				html: mensaje_mio[2]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<p>', {
+				'id': 'contenido'+k+k+k,
+				'class': 'contenido',
+				html: mensaje_mio[3]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<h6>', {
+				'id': 'fecha'+k+k+k,
+				'class': 'fecha',
+				html: mensaje_mio[4]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<button>', {
+				'type': 'button',
+				'id': 'cerrar'+k+k+k,
+				'class': 'cerrar',
+				html: 'Cerrar',
+				'onclick': 'cerrar_mismensajes()'
+			}).appendTo('#MiMensaje'+k+k+k);
+			k++;
+			console.log(k);
 		}
 	})
-}*/
+};
