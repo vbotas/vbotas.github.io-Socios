@@ -108,7 +108,7 @@ html {
 .menu-fixed img, .menu-fixed #banner{
 	display: none;
 }
-.menu-fixed #botonPerfil {
+.menu-fixed {
 	position: fixed;
 	display: inline;
 	z-index:1000;

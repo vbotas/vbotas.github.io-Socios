@@ -8,14 +8,14 @@ $(document).ready(function() {
 	$('#tabs').tabs();
 	timeline();
 	// cargar_timeline();
-	var altura = $('#botonPerfil').offset().top;
+	var altura = $('#wrapper').offset().top;
 	console.log('la altura es ' + altura);
 	
 	$(window).on('scroll',function() {
 		if ( $(window).scrollTop() > altura ) {
-			$('#wrapper').addClass('menu-fixed');
+			$('#lista_tabs').addClass('menu-fixed');
 		} else {
-			$('#wrapper').removeClass('menu-fixed');
+			$('#lista_tabs').removeClass('menu-fixed');
 		}
 	})
 	setTimeout(cargar_mensajesNoLeidos, 3000);
