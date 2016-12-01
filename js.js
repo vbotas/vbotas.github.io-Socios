@@ -163,6 +163,7 @@ var mostrar_mensajeNoLeido = function () {
 		$('#contenido'+idsinleer_extraido).css({'display':'block'});
 		$('#fecha'+idsinleer_extraido).css({'display':'block'});
 		$('#cerrar'+idsinleer_extraido).css({'display':'block'});
+		$('#verMapa'+idsinleer_extraido).css({'display':'block'});
 	})
 };
 var mostrar_mismensajes = function () {
@@ -175,6 +176,7 @@ var mostrar_mismensajes = function () {
 		$('#contenido'+idMM_extraido).css({'display':'block'});
 		$('#fecha'+idMM_extraido).css({'display':'block'});
 		$('#cerrar'+idMM_extraido).css({'display':'block'});
+		$('#verMapa'+idMM_extraido).css({'display':'block'});
 	})
 };
 
@@ -204,10 +206,13 @@ var cerrar_mensajeNoLeido = function () {
 		// console.log('El ID de este mensaje es: ' + idsinleer_recibido);
 		var idsinleer_extraido = idsinleer_recibido[idsinleer_recibido.length - 2] + idsinleer_recibido[idsinleer_recibido.length - 1];
 		// console.log(idsinleer_extraido);
-		$('#titulo'+idsinleer_extraido).css({'display':'none'});
+		//$('#titulo'+idsinleer_extraido).css({'display':'none'});
 		$('#contenido'+idsinleer_extraido).css({'display':'none'});
 		$('#fecha'+idsinleer_extraido).css({'display':'none'});
 		$('#cerrar'+idsinleer_extraido).css({'display':'none'});
+		$('#mapa'+idsinleer_extraido).css({'display':'none'});
+		$('#verMapa'+idsinleer_extraido).css({'display':'none'});
+
 	})
 };
 var cerrar_mismensajes = function () {
@@ -220,6 +225,8 @@ var cerrar_mismensajes = function () {
 		$('#contenido'+idMM_extraido).css({'display':'none'});
 		$('#fecha'+idMM_extraido).css({'display':'none'});
 		$('#cerrar'+idMM_extraido).css({'display':'none'});
+		$('#mapa'+idMM_extraido).css({'display':'none'});
+		$('#verMapa'+idMM_extraido).css({'display':'none'});
 	})
 };
 
@@ -239,6 +246,7 @@ var cargar_mensajesNoLeidos = function() {
 			titulo_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].titulo;
 			contenido_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].contenido;
 			fecha_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].fecha;
+			coordenadas_mensajeSinLeer = datos2.mensajes_sinLeer[mens_sinleer].coordenadas;
 			var mensaje_sinLeer = [];
 
 			mensaje_sinLeer.push(autor_mensajesSinLeer);
@@ -246,7 +254,9 @@ var cargar_mensajesNoLeidos = function() {
 			mensaje_sinLeer.push(titulo_mensajeSinLeer);
 			mensaje_sinLeer.push(contenido_mensajeSinLeer);
 			mensaje_sinLeer.push(fecha_mensajeSinLeer);
+			mensaje_sinLeer.push(coordenadas_mensajeSinLeer);
 			console.log(mensaje_sinLeer);
+
 			var num_mensajesSinLeer = datos2.mensajes_sinLeer.length;
 			console.log('Tienes ' + num_mensajesSinLeer+ ' mensajes sin leer');
 			
@@ -278,6 +288,16 @@ var cargar_mensajesNoLeidos = function() {
 				'id': 'fecha'+j+j,
 				'class': 'fecha',
 				html: mensaje_sinLeer[4]
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<div>', {
+				'id': 'mapa' + j +j,
+				'class': 'mapa'
+			}).appendTo('#mensajeSinLeer'+j+j);
+			$('<button>', {
+				'id':'verMapa'+j+j,
+				'class': 'verMapa',
+				html:'Ver Mapa',
+				'onclick': 'mostrar_coordenadasMensajeNoLeido('+ mensaje_sinLeer[5][1] + ',' + mensaje_sinLeer[5][0]+','+j+')'
 			}).appendTo('#mensajeSinLeer'+j+j);
 			$('<button>', {
 				'type': 'button',
@@ -336,6 +356,7 @@ var paginaperfil = function () {
 			tituloMisMensajes = misDatos.MisMensajes[mismens].titulo;
 			contenidoMisMensajes = misDatos.MisMensajes[mismens].contenido;
 			fechaMisMensajes = misDatos.MisMensajes[mismens].fecha;
+			coordenadasMisMensajes = misDatos.MisMensajes[mismens].coordenadas;
 
 			var mensaje_mio = [];
 
@@ -344,6 +365,7 @@ var paginaperfil = function () {
 			mensaje_mio.push(tituloMisMensajes);
 			mensaje_mio.push(contenidoMisMensajes);
 			mensaje_mio.push(fechaMisMensajes);
+			mensaje_mio.push(coordenadasMisMensajes);
 
 			console.log(mensaje_mio);
 			
@@ -376,6 +398,16 @@ var paginaperfil = function () {
 				'id': 'fecha'+k+k+k,
 				'class': 'fecha',
 				html: mensaje_mio[4]
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<div>', {
+				'id': 'mapa' + k + k + k,
+				'class': 'mapa'
+			}).appendTo('#MiMensaje'+k+k+k);
+			$('<button>', {
+				'id':'verMapa'+k+k+k,
+				'class': 'verMapa',
+				html:'Ver Mapa',
+				'onclick': 'mostrar_misCoordenadas('+ mensaje_mio[5][1] + ',' + mensaje_mio[5][0]+','+k+')'
 			}).appendTo('#MiMensaje'+k+k+k);
 			$('<button>', {
 				'type': 'button',
@@ -415,4 +447,52 @@ var mostrar_coordenadasMensajeLeido = function (latitud,longitud,i) {
 	 	L.marker([lat, lon]).addTo(ver_mapa)
 	 		.openPopUp();
 
+};
+
+var mostrar_coordenadasMensajeNoLeido = function (latitud, longitud, j) {
+	var lat = latitud;
+	var lon = longitud;
+	//var mapaID2 = 'mapa'+j+j;
+	//console.log(mapaID);
+	$('<div>', {
+		'id':'mapa'+j+j,
+		'class': 'mapa'
+	}).appendTo('verMapa'+j+j);
+	$('#mapa'+j+j).css({'display':'block'});
+	var ver_mapa = L.map('mapa'+j+j, {
+	 	center: [lat, lon],
+	 	zoom: 16
+	});
+
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	 	maxZoom: 20
+	}).addTo(ver_mapa);
+	 	L.control.scale().addTo(ver_mapa);
+	 	L.marker([lat, lon]).addTo(ver_mapa)
+	 		.openPopUp();
+};
+
+var mostrar_misCoordenadas = function (latitud, longitud, k) {
+	var lat = latitud;
+	var lon = longitud;
+	//var mapaID2 = 'mapa'+j+j;
+	//console.log(mapaID);
+	$('<div>', {
+		'id':'mapa'+k+k+k,
+		'class': 'mapa'
+	}).appendTo('verMapa'+k+k+k);
+	$('#mapa'+k+k+k).css({'display':'block'});
+	var ver_mapa = L.map('mapa'+k+k+k, {
+	 	center: [lat, lon],
+	 	zoom: 16
+	});
+
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	 	maxZoom: 20
+	}).addTo(ver_mapa);
+	 	L.control.scale().addTo(ver_mapa);
+	 	L.marker([lat, lon]).addTo(ver_mapa)
+	 		.openPopUp();
 };
