@@ -6,7 +6,7 @@
         "titulo": "titulo mensaje sin leer 1",
         "contenido": "contenido mensaje sin leer 1",
         "fecha": "fecha mensaje sin leer 1",
-        "coordenadas": [121.5168, 31.16961]
+        "coordenadas": [121.4871639, 31.2388556]
     },
     {
         "autor": "Miguel Pérez Cuesta",
@@ -14,7 +14,7 @@
         "titulo": "titulo mensaje sin leer 2",
         "contenido": "contenido mensaje sin leer 2",
         "fecha": "fecha mensajesin leer 2",
-        "coordenadas": [14.28141, 40.84519]
+        "coordenadas": [14.254744, 40.849295]
     },
     {
         "autor": "Juan Lázaro Bernardo",
@@ -22,7 +22,7 @@
         "titulo": "titulo mensaje sin leer 3",
         "contenido": "contenido mensaje sin leer 3",
         "fecha": "fecha mensaje sin leer 3",
-        "coordenadas": [-71.18121, 44.47076]
+        "coordenadas": [13.377898, 52.516287]
     },
     {
         "autor": "Néstor Susaeta Jaurrieta",
@@ -30,7 +30,7 @@
         "titulo": "titulo mensaje sin leer 4",
         "contenido": "contenido mensaje sin leer 4",
         "fecha": "fecha mensaje sin leer 4",
-        "coordenadas": [-2.965256, 43.27711]
+        "coordenadas": [-2.9342861111111, 43.268605555556]
     },
     {
         "autor": "Adrián Díaz Fuente",
@@ -38,7 +38,7 @@
         "titulo": "titulo mensaje sin leer 5",
         "contenido": "contenido mensaje sin leer 5",
         "fecha": "fecha mensaje sin leer 5",
-        "coordenadas": [121.5168, 31.16961]
+        "coordenadas": [121.4871639, 31.2388556]
     },
     {
         "autor": "Esteban Andrés Suárez",
@@ -46,7 +46,7 @@
         "titulo": "titulo mensaje sin leer 6",
         "contenido": "contenido mensaje sin leer 6",
         "fecha": "fecha mensaje sin leer6",
-        "coordenadas": [-75.6107, 42.93708]
+        "coordenadas": [-73.9654, 40.7829]
     },
     {
         "autor": "Juan Lázaro Bernardo",
@@ -54,7 +54,7 @@
         "titulo": "titulo mensaje sin leer 7",
         "contenido": "contenido mensaje sin leer 7",
         "fecha": "fecha mensaje sin leer 7",
-        "coordenadas": [-71.18121, 44.47076]
+        "coordenadas": [13.377898, 52.516287]
     },
     {
         "autor": "Diego Cervero Otero",
@@ -62,7 +62,7 @@
         "titulo": "titulo mensaje sin leer 8",
         "contenido": "contenido mensaje sin leer 8",
         "fecha": "fecha mensaje sin leer 8",
-        "coordenadas": [-5.8333, 43.3667]
+        "coordenadas": [-5.84384948015213, 43.3624542432342]
     },
     {
         "autor": "Miguel Pérez Cuesta",
@@ -70,7 +70,7 @@
         "titulo": "titulo mensaje sin leer 9",
         "contenido": "contenido mensaje sin leer 9",
         "fecha": "fecha mensaje sin leer 9",
-        "coordenadas": [14.28141, 40.84519]
+        "coordenadas": [14.254744, 40.849295]
     },
     {
         "autor": "Néstor Susaeta Jaurrieta",
@@ -78,7 +78,7 @@
         "titulo": "titulo mensaje sin leer 10",
         "contenido": "contenido mensaje sin leer 10",
         "fecha": "fecha mensaje sin leer 10",
-        "coordenadas": [-2.965256, 43.27711]
+        "coordenadas": [-2.9342861111111, 43.268605555556]
     }
   ]
 }
