@@ -57,6 +57,17 @@ html {
 	margin: 0 auto;
 	border-radius: 15px;
 }
+.verMapa {
+	width: 100px;
+	height: 30px;
+
+}
+.mapa {
+	width: 500px;
+	height:300px;
+	border: 2px solid grey;
+	display:none;
+}
 
 #avatar {
 	border: 2px solid grey;
@@ -66,7 +77,7 @@ html {
 	overflow: hidden;
 }
 
-.titulo, .cerrar, .contenido, .fecha{
+.verMapa, .cerrar, .contenido, .fecha{
 	display: none;
 }
 

@@ -5,70 +5,80 @@
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 1",
         "contenido": "contenido Mimensaje 1",
-        "fecha": "fecha Mimensaje 1"
+        "fecha": "fecha Mimensaje 1",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 2",
         "contenido": "contenido Mimensaje 2",
-        "fecha": "fecha Mimensaje 2"
+        "fecha": "fecha Mimensaje 2",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 3",
         "contenido": "contenido Mimensaje 3",
-        "fecha": "fecha Mimensaje 3"
+        "fecha": "fecha Mimensaje 3",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 4",
         "contenido": "contenido Mimensaje 4",
-        "fecha": "fecha Mimensaje 4"
+        "fecha": "fecha Mimensaje 4",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 5",
         "contenido": "contenido Mimensaje 5",
-        "fecha": "fecha Mimensaje 5"
+        "fecha": "fecha Mimensaje 5",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 6",
         "contenido": "contenido Mimensaje 6",
-        "fecha": "fecha Mimensaje 6"
+        "fecha": "fecha Mimensaje 6",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 7",
         "contenido": "contenido Mimensaje 7",
-        "fecha": "fecha Mimensaje 7"
+        "fecha": "fecha Mimensaje 7",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 8",
         "contenido": "contenido Mimensaje 8",
-        "fecha": "fecha Mimensaje 8"
+        "fecha": "fecha Mimensaje 8",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 9",
         "contenido": "contenido Mimensaje 9",
-        "fecha": "fecha Mimensaje 9"
+        "fecha": "fecha Mimensaje 9",
+        "coordenadas": [-3.8215, 40.2838]
     },
     {
         "autor": "Víctor Botas Menéndez",
         "avatar": "./avatares/avatar-5.jpg",
         "titulo": "titulo Mimensaje 10",
         "contenido": "contenido Mimensaje 10",
-        "fecha": "fecha Mimensaje 10"
+        "fecha": "fecha Mimensaje 10",
+        "coordenadas": [-3.8215, 40.2838]
     }
   ]
 }

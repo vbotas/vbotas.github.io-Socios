@@ -7,7 +7,6 @@ $(document).ready(function() {
 	k = 0;
 	$('#tabs').tabs();
 	timeline();
-	// cargar_timeline();
 	var altura = $('#wrapper').offset().top;
 	console.log('la altura es ' + altura);
 	
@@ -18,7 +17,7 @@ $(document).ready(function() {
 			$('#lista_tabs').removeClass('menu-fixed');
 		}
 	})
-	setTimeout(cargar_mensajesNoLeidos, 3000);
+	setTimeout(cargar_mensajesNoLeidos, 1000);
 	
 	$('#mensajesNoLeidos').on('click', function() {
 		$('#mensajeInfo').css({'display':'none'});
@@ -52,6 +51,8 @@ var timeline = function() {
 			titulo_mensaje = datos.mensajes[mens].titulo;
 			contenido_mensaje = datos.mensajes[mens].contenido;
 			fecha_mensaje = datos.mensajes[mens].fecha;
+			coordenadas_mensaje = datos.mensajes[mens].coordenadas;
+
 			var mensaje = [];
 			//$('#texto').append('<div class="mensaje"><h1>Mensaje '+ (mens+1) +'</h1></div>');
 			//$("<p id='autor'>Autor: " + autor_mensaje + "</p>").appendTo('#texto');
@@ -64,7 +65,14 @@ var timeline = function() {
 			mensaje.push(contenido_mensaje);
 			//$('#texto').append('<p id="fecha">Fecha: ' + fecha_mensaje + '</p>');
 			mensaje.push(fecha_mensaje);
+			mensaje.push(coordenadas_mensaje);
+
 			console.log(mensaje);
+			/*console.log('Las coordenadas son: ' + mensaje[5]);
+			console.log('La longitud es: ' + mensaje[5][0]);
+			console.log('La latitud es: ' + mensaje[5][1]);*/
+			var latitud = mensaje[5][1];
+			var longitud = mensaje[5][0];
 			//console.log(i);
 			$('<br />').appendTo('#texto');
 			$('<div>', {
@@ -95,6 +103,17 @@ var timeline = function() {
 				'class': 'fecha',
 				html: mensaje[4]
 			}).appendTo('#mensaje'+i);
+			$('<div>', {
+				'id': 'mapa' + i,
+				'class': 'mapa'
+			}).appendTo('#mensaje'+i);
+			$('<button>', {
+				'id':'verMapa'+i,
+				'class': 'verMapa',
+				html:'Ver Mapa',
+				'onclick': 'mostrar_coordenadasMensajeLeido('+ mensaje[5][1] + ',' + mensaje[5][0]+','+i+')'
+			}).appendTo('#mensaje'+i);
+			
 			$('<button>', {
 			 	'type': 'button',
 			 	'id': 'cerrar' + i,
@@ -104,17 +123,13 @@ var timeline = function() {
 			 	}).appendTo('#mensaje'+i);
 			i++;
 			console.log(i);
-			
+			// console.log(latitud);
+			// console.log(longitud);
+			//mostrar_coordenadas(latitud,longitud);
 		};
 	});
 };
 
-// var cargar_timeline = function() {
-// 	console.log('llama a la funcion');
-// 	$('#texto').on('click','.mensaje_cargado', function() {
-// 		console.log('clickaste un mensaje');
-// 	})
-// };
 
 var mostrar_mensajeLeido = function () {
 	// $('.titulo').slideToggle('fast', 'swing');
@@ -125,24 +140,25 @@ var mostrar_mensajeLeido = function () {
 	//console.log(idTitulo);
 	//$('#'+idTitulo).slideToggle('fast','swing');
 	$('#texto').on('click','.mensaje_cargado',function() {
-		console.log('ABRELO, COÑO');
+		
 		var id_recibido = $(this).attr('id');
 		console.log('El ID de este mensaje es: ' + id_recibido);
 		var id_extraido = id_recibido[id_recibido.length - 1];
-		console.log(id_extraido);
+		
 		$('#titulo'+id_extraido).css({'display':'block'});
 		$('#contenido'+id_extraido).css({'display':'block'});
 		$('#fecha'+id_extraido).css({'display':'block'});
 		$('#cerrar'+id_extraido).css({'display':'block'});
+		//$('#mapa'+id_extraido).css({'display':'block'});
+		$('#verMapa'+id_extraido).css({'display':'block'});
 	})
 };
 var mostrar_mensajeNoLeido = function () {
 	$('#mensajesNoLeidos_cargados').on('click','.mensaje_cargadoSinLeer',function() {
-		console.log('ABRELO, COÑO');
 		var idsinleer_recibido = $(this).attr('id');
-		console.log('El ID de este mensaje es: ' + idsinleer_recibido);
+		// console.log('El ID de este mensaje es: ' + idsinleer_recibido);
 		var idsinleer_extraido = idsinleer_recibido[idsinleer_recibido.length - 2] + idsinleer_recibido[idsinleer_recibido.length - 1];
-		console.log(idsinleer_extraido);
+		// console.log(idsinleer_extraido);
 		$('#titulo'+idsinleer_extraido).css({'display':'block'});
 		$('#contenido'+idsinleer_extraido).css({'display':'block'});
 		$('#fecha'+idsinleer_extraido).css({'display':'block'});
@@ -152,9 +168,9 @@ var mostrar_mensajeNoLeido = function () {
 var mostrar_mismensajes = function () {
 	$('#miperfil').on('click','.misMensajes', function() {
 		var idMM_recibido = $(this).attr('id');
-		console.log('El ID de este mensaje es: ' + idMM_recibido);
+		// console.log('El ID de este mensaje es: ' + idMM_recibido);
 		var idMM_extraido = idMM_recibido[idMM_recibido.length-3] + idMM_recibido[idMM_recibido.length-2] + idMM_recibido[idMM_recibido.length-1];
-		console.log(idMM_extraido);
+		// console.log(idMM_extraido);
 		$('#titulo'+idMM_extraido).css({'display':'block'});
 		$('#contenido'+idMM_extraido).css({'display':'block'});
 		$('#fecha'+idMM_extraido).css({'display':'block'});
@@ -168,24 +184,26 @@ var mostrar_mismensajes = function () {
 
 var cerrar_mensajeLeido = function() {
 	$('#texto').on('dblclick','.mensaje_cargado',function() {
-		console.log('CIERRALO, COÑO');
+		// console.log('CIERRALO, COÑO');
 		var id_recibido = $(this).attr('id');
-		console.log('El ID de este mensaje es: ' + id_recibido);
+		// console.log('El ID de este mensaje es: ' + id_recibido);
 		var id_extraido = id_recibido[id_recibido.length - 1];
-		console.log(id_extraido);
-		$('#titulo'+id_extraido).css({'display':'none'});
+		// console.log(id_extraido);
+		
 		$('#contenido'+id_extraido).css({'display':'none'});
 		$('#fecha'+id_extraido).css({'display':'none'});
 		$('#cerrar'+id_extraido).css({'display':'none'});
+		$('#mapa'+id_extraido).css({'display':'none'});
+		$('#verMapa'+id_extraido).css({'display':'none'});
 	})
 };
 var cerrar_mensajeNoLeido = function () {
 	$('#mensajesNoLeidos_cargados').on('dblclick','.mensaje_cargadoSinLeer',function() {
-		console.log('CIERRALO, COÑO');
+		// console.log('CIERRALO, COÑO');
 		var idsinleer_recibido = $(this).attr('id');
-		console.log('El ID de este mensaje es: ' + idsinleer_recibido);
+		// console.log('El ID de este mensaje es: ' + idsinleer_recibido);
 		var idsinleer_extraido = idsinleer_recibido[idsinleer_recibido.length - 2] + idsinleer_recibido[idsinleer_recibido.length - 1];
-		console.log(idsinleer_extraido);
+		// console.log(idsinleer_extraido);
 		$('#titulo'+idsinleer_extraido).css({'display':'none'});
 		$('#contenido'+idsinleer_extraido).css({'display':'none'});
 		$('#fecha'+idsinleer_extraido).css({'display':'none'});
@@ -195,9 +213,9 @@ var cerrar_mensajeNoLeido = function () {
 var cerrar_mismensajes = function () {
 	$('#miperfil').on('dblclick','.misMensajes', function() {
 		var idMM_recibido = $(this).attr('id');
-		console.log('El ID de este mensaje es: '+ idMM_recibido);
+		// console.log('El ID de este mensaje es: '+ idMM_recibido);
 		var idMM_extraido = idMM_recibido[idMM_recibido.length-3] + idMM_recibido[idMM_recibido.length-2] + idMM_recibido[idMM_recibido.length-1];
-		console.log(idMM_extraido);
+		// console.log(idMM_extraido);
 		$('#titulo'+idMM_extraido).css({'display':'none'});
 		$('#contenido'+idMM_extraido).css({'display':'none'});
 		$('#fecha'+idMM_extraido).css({'display':'none'});
@@ -303,19 +321,6 @@ var cargar_mensajesNoLeidos = function() {
 		}).appendTo('#mensajesNoLeidos');
 };
 
-/*var paginaperfil = function () {
-	
-	var nueva_ventana = window.open('', '_blank');
-	nueva_ventana.alert('Abriste tu perfil');
-	$('html').css({
-		'background':'url("./Fondo.jpg") no-repeat center fixed',
-		'background-size': 'cover'
-	});
-	$('<p>')
-	nueva_ventana.on('ready', function() {
-		alert('ya cargo la pagina');
-	})
-}*/
 
 
 var paginaperfil = function () {
@@ -383,4 +388,31 @@ var paginaperfil = function () {
 			console.log(k);
 		}
 	})
+};
+
+
+var mostrar_coordenadasMensajeLeido = function (latitud,longitud,i) {
+	//alert('ID: ' + i + ' ['+latitud+', ' + longitud+']');
+	var lat = latitud;
+	var lon = longitud;
+	var mapaID = 'mapa'+i;
+	//console.log(mapaID);
+	$('<div>', {
+		'id':'mapa'+i,
+		'class': 'mapa'
+	}).appendTo('verMapa'+i);
+	$('#mapa'+i).css({'display':'block'});
+	ver_mapa = L.map('mapa'+i, {
+	 	center: [lat, lon],
+	 	zoom: 16
+	});
+
+	L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	 	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+	 	maxZoom: 20
+	}).addTo(ver_mapa);
+	 	L.control.scale().addTo(ver_mapa);
+	 	L.marker([lat, lon]).addTo(ver_mapa)
+	 		.openPopUp();
+
 };

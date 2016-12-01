@@ -1,6 +1,8 @@
 ###MEJORAS
 	- En cada mensaje, en lugar de existir un botón para desplegar todo el contenido del mensaje, simplemente con "clickar" en cualquier parte del mensaje se desplegará, y para cerrarlo, habrá que hacer "doubleclick" al botón "Cerrar" que aparece cuando se despliega el mensaje.
 
+	- Si desplegamos cada mensaje, aparecerá un botón con el texto "Ver Mapa", y al clickarlo, se abrirá un "div" mostrándo las coordenadas desde donde se ha escrito el mensaje, y lo mostrará en un mapa.
+
 
 
 ##PRÁCTICA BÁSICA

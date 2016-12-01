@@ -5,42 +5,48 @@
         "avatar": "./avatares/avatar-1.jpg",
         "titulo": "titulo mensaje1",
         "contenido": "contenido mensaje1",
-        "fecha": "fecha mensaje1"
+        "fecha": "fecha mensaje1",
+        "coordenadas": [-5.84384948015213, 43.3624542432342]
     },
     {
         "autor": "Néstor Susaeta Jaurrieta",
         "avatar": "./avatares/avatar-2.jpg",
         "titulo": "titulo mensaje2",
         "contenido": "contenido mensaje2",
-        "fecha": "fecha mensaje2"
+        "fecha": "fecha mensaje2",
+        "coordenadas": [-2.9342861111111, 43.268605555556]
     },
     {
         "autor": "Miguel Pérez Cuesta",
         "avatar": "./avatares/avatar-3.jpg",
         "titulo": "titulo mensaje3",
         "contenido": "contenido mensaje3",
-        "fecha": "fecha mensaje3"
+        "fecha": "fecha mensaje3",
+        "coordenadas": [14.254744, 40.849295]
     },
     {
         "autor": "Juan Lázaro Bernardo",
         "avatar": "./avatares/avatar-4.jpg",
         "titulo": "titulo mensaje4",
         "contenido": "contenido mensaje4",
-        "fecha": "fecha mensaje4"
+        "fecha": "fecha mensaje4",
+        "coordenadas": [13.377898, 52.516287]
     },
     {
         "autor": "Adrián Díaz Fuente",
         "avatar": "./avatares/avatar-6.jpg",
         "titulo": "titulo mensaje5",
         "contenido": "contenido mensaje5",
-        "fecha": "fecha mensaje5"
+        "fecha": "fecha mensaje5",
+        "coordenadas": [121.4871639, 31.2388556]
     },
     {
         "autor": "Esteban Andrés Suárez",
         "avatar": "./avatares/avatar-7.jpg",
         "titulo": "titulo mensaje6",
         "contenido": "contenido mensaje6",
-        "fecha": "fecha mensaje6"
+        "fecha": "fecha mensaje6",
+        "coordenadas": [-73.9654, 40.7829]
     }
   ]
 }
